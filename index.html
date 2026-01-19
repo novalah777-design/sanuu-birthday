@@ -1,280 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday Sanuu 💖</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For My Sanuu 💖</title>
 
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      overflow: hidden;
-      background: linear-gradient(180deg, #ff9a9e, #fad0c4);
-      font-family: 'Poppins', sans-serif;
-      color: #fff;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
-    .page {
-      position: absolute;
-      inset: 0;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      padding: 24px;
-      animation: fade 0.7s ease;
-    }
-    .page.active { display: flex; }
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#2b1055,#6a0572);
+  color:#fff;
+  min-height:100vh;
+  overflow:hidden;
+}
+.page{
+  display:none;
+  height:100vh;
+  padding:24px;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+.page.active{display:flex}
+.card{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(10px);
+  border-radius:20px;
+  padding:28px;
+  max-width:360px;
+  width:100%;
+}
+h1,h2{font-family:'Pacifico',cursive;margin-bottom:14px}
+button{
+  background:#ff5fa2;
+  border:none;
+  padding:12px 24px;
+  border-radius:30px;
+  color:white;
+  font-size:16px;
+  margin-top:16px;
+}
+input{
+  width:100%;
+  padding:12px;
+  border-radius:20px;
+  border:none;
+  margin-top:10px;
+  text-align:center;
+  font-size:16px;
+}
+.scroll{
+  max-height:65vh;
+  overflow-y:auto;
+  text-align:left;
+  line-height:1.6;
+  padding-right:6px;
+}
+.scroll::-webkit-scrollbar{width:4px}
+.scroll::-webkit-scrollbar-thumb{background:#ff8dc7;border-radius:4px}
 
-    @keyframes fade {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+/* Cake */
+.cake{
+  width:180px;
+  height:120px;
+  background:#ffb6c1;
+  border-radius:0 0 20px 20px;
+  margin:20px auto;
+  position:relative;
+}
+.icing{
+  position:absolute;
+  top:-20px;
+  width:100%;
+  height:40px;
+  background:#fff;
+  border-radius:20px;
+}
+.candle{
+  width:10px;height:30px;
+  background:#ff5fa2;
+  position:absolute;
+  top:-50px;left:50%;
+  transform:translateX(-50%);
+}
+.flame{
+  width:12px;height:12px;
+  background:orange;
+  border-radius:50%;
+  position:absolute;
+  top:-12px;left:-1px;
+  animation:flicker 1s infinite;
+}
+@keyframes flicker{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.3)}
+  100%{transform:scale(1)}
+}
+.slice{
+  position:absolute;
+  right:0;top:0;
+  width:60px;height:120px;
+  background:#f7a1b3;
+  border-radius:0 0 20px 0;
+  animation:slice 2s forwards;
+  display:none;
+}
+@keyframes slice{
+  to{transform:translateX(80px);opacity:0}
+}
 
-    h1, h2 {
-      font-family: 'Pacifico', cursive;
-      text-shadow: 0 6px 20px rgba(0,0,0,0.25);
-      margin-bottom: 12px;
-    }
-
-    p { max-width: 520px; line-height: 1.7; }
-
-    button {
-      padding: 14px 34px;
-      font-size: 18px;
-      border-radius: 999px;
-      border: none;
-      background: linear-gradient(135deg, #ff6ec4, #7873f5);
-      color: white;
-      cursor: pointer;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-      transition: transform 0.2s ease;
-    }
-    button:hover { transform: scale(1.05); }
-
-    /* PASSWORD */
-    .lock {
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(8px);
-      padding: 30px;
-      border-radius: 26px;
-      max-width: 340px;
-      box-shadow: 0 0 40px rgba(255,255,255,0.25);
-    }
-    input {
-      padding: 12px;
-      border-radius: 14px;
-      border: none;
-      font-size: 16px;
-      width: 100%;
-      text-align: center;
-    }
-
-    /* CAKE */
-    .cake-wrapper { position: relative; margin: 28px 0; }
-
-    .cake {
-      width: 240px;
-      height: 160px;
-      background: linear-gradient(#ffb6c1, #ff69b4);
-      border-radius: 22px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 25px 45px rgba(255,105,180,0.6);
-    }
-
-    .icing {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      height: 38px;
-      background: #fff;
-      border-radius: 22px 22px 18px 18px;
-    }
-
-    .sprinkle {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #ffd1dc;
-    }
-
-    .candle {
-      position: absolute;
-      top: -48px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 16px;
-      height: 48px;
-      background: linear-gradient(#ffd700, #ffec8b);
-      border-radius: 8px;
-    }
-
-    .flame {
-      position: absolute;
-      top: -22px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 18px;
-      height: 18px;
-      background: orange;
-      border-radius: 50% 50% 50% 50%;
-      animation: flicker 1s infinite;
-    }
-
-    .slice {
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 50%;
-      height: 100%;
-      background: rgba(255,255,255,0.35);
-      transform: translateX(100%);
-    }
-
-    .cake.cut .slice { animation: sliceOut 1.3s forwards ease-in-out; }
-
-    @keyframes sliceOut { to { transform: translateX(0); } }
-    @keyframes flicker { 0%,100% { opacity: 1; } 50% { opacity: 0.6; } }
-
-    /* MESSAGE */
-    .message {
-      max-height: 65vh;
-      overflow-y: auto;
-      padding: 24px;
-      background: rgba(255,255,255,0.2);
-      backdrop-filter: blur(8px);
-      border-radius: 26px;
-      box-shadow: 0 0 40px rgba(255,255,255,0.25);
-    }
-
-    /* FINAL */
-    img {
-      width: 230px;
-      height: 230px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 18px;
-      box-shadow: 0 0 50px rgba(255,105,180,0.7);
-    }
-
-    /* SPARKLES */
-    .sparkle {
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      background: white;
-      border-radius: 50%;
-      opacity: 0.85;
-      animation: float 10s linear infinite;
-    }
-    @keyframes float {
-      from { transform: translateY(110vh) scale(0.6); }
-      to { transform: translateY(-10vh) scale(1.2); }
-    }
-  </style>
+/* Sparkles */
+.sparkle{
+  position:fixed;
+  width:4px;height:4px;
+  background:#ff8dc7;
+  border-radius:50%;
+  opacity:0.7;
+  animation:float 6s linear infinite;
+}
+@keyframes float{
+  from{transform:translateY(100vh)}
+  to{transform:translateY(-10vh)}
+}
+</style>
 </head>
+
 <body>
 
-<audio id="bgm" loop>
-  <source src="music.mp3" type="audio/mpeg" />
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <!-- PASSWORD -->
-<div class="page active" id="lockPage">
-  <div class="lock">
+<div class="page active" id="lock">
+  <div class="card">
     <h2>Hey Sanuu 💖</h2>
-    <p>This little surprise is only for you</p>
-    <input type="password" id="pwd" placeholder="Enter the secret word" />
-    <br><br>
-    <button onclick="checkPassword()">Unlock My Surprise 🎁</button>
-    <p style="font-size:14px;opacity:0.9;margin-top:12px;">Hint: what I secretly call you 😉</p>
-    <p id="error"></p>
+    <p>This surprise is locked just for you</p>
+    <input id="pwd" type="password" placeholder="Secret word"/>
+    <button onclick="unlock()">Unlock 🎁</button>
+    <p id="err" style="margin-top:10px;color:#ffd1e8"></p>
+    <p style="font-size:13px;margin-top:10px">Hint: what I call you 😉</p>
   </div>
 </div>
 
-<!-- CAKE PAGE -->
-<div class="page" id="page1">
-  <h1>Happy Birthday Sanuu 🎂</h1>
-  <p>Close your eyes, make a wish… then cut the cake 💕</p>
-
-  <div class="cake-wrapper">
-    <div class="candle"><div class="flame"></div></div>
-    <div class="cake" id="cake">
+<!-- CAKE -->
+<div class="page" id="cakePage">
+  <div>
+    <h1>Make a wish 🎂</h1>
+    <div class="cake">
       <div class="icing"></div>
-      <div class="slice"></div>
+      <div class="candle"><div class="flame"></div></div>
+      <div class="slice" id="slice"></div>
     </div>
+    <button onclick="cutCake()">Cut the cake 💕</button>
   </div>
-
-  <button onclick="cutCake()">Cut the Cake 🎉</button>
 </div>
 
-<!-- MESSAGE PAGE -->
-<div class="page" id="page2">
-  <h2>For My Sanuu 💖</h2>
-  <div class="message">
+<!-- MESSAGE -->
+<div class="page" id="msgPage">
+  <div class="card scroll">
+    <h2>My love 💖</h2>
     <p>
-      Happy Birthday my love ❤️<br><br>
-      You are my calm in chaos, my safest place, my favorite thought.
-      The way you exist makes my world softer and warmer.
+      Sanuu… from the moment you came into my life, everything felt softer,
+      warmer, and more real. You are my comfort, my happiness, my chaos and my calm.
       <br><br>
-      I love how you smile, how you care, how you make everything feel okay.
-      I don’t need perfect days — just days with you.
+      Every smile of yours feels like home to me. Every little thing you do,
+      even without realizing it, makes my heart choose you again and again.
       <br><br>
-      On your birthday and every day after, I hope you feel how deeply loved you are.
+      I may not always be perfect, but my love for you is honest, deep,
+      and endlessly yours. You deserve all the love in the world —
+      and I promise to keep giving you mine, every single day.
       <br><br>
-      I’m so grateful for you, Sanuu.
-      I love you endlessly 💖
+      Happy almost birthday, my Sanuu 🤍
+    </p>
+    <button onclick="nextPage()">A special message 💌</button>
+  </div>
+</div>
+
+<!-- FINAL -->
+<div class="page" id="finalPage">
+  <div class="card">
+    <img src="her.jpg" style="width:100%;border-radius:16px;margin-bottom:14px"/>
+    <p>
+      Happy Birthday in advance, my love 🎉<br>
+      You are my favorite person, always.
     </p>
   </div>
-  <br>
-  <button onclick="nextPage(3)">One Last Thing 💌</button>
-</div>
-
-<!-- FINAL PAGE -->
-<div class="page" id="page3">
-  <img src="her-photo.jpg" alt="Sanuu" />
-  <h2>Happy Birthday Beautiful 💕</h2>
-  <p>
-    Always glowing. Always loved.<br>
-    Today, tomorrow, and always 🌸
-  </p>
 </div>
 
 <script>
-  function checkPassword() {
-    if (document.getElementById('pwd').value === 'MOMMY') {
-      document.getElementById('lockPage').classList.remove('active');
-      document.getElementById('page1').classList.add('active');
-    } else {
-      document.getElementById('error').innerText = 'Wrong password 🥺 try again';
-    }
+function unlock(){
+  if(document.getElementById('pwd').value==="MOMMY"){
+    show('cakePage');
+    document.getElementById('music').play();
+  } else {
+    document.getElementById('err').innerText="Wrong password 😜";
   }
-
-  function cutCake() {
-    document.getElementById('cake').classList.add('cut');
-    setTimeout(() => nextPage(2), 1300);
-  }
-
-  function nextPage(n) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById('page' + n).classList.add('active');
-    document.getElementById('bgm').play();
-  }
-
-  for (let i = 0; i < 45; i++) {
-    const s = document.createElement('div');
-    s.className = 'sparkle';
-    s.style.left = Math.random() * 100 + 'vw';
-    s.style.animationDuration = 6 + Math.random() * 6 + 's';
-    document.body.appendChild(s);
-  }
+}
+function cutCake(){
+  document.getElementById('slice').style.display='block';
+  setTimeout(()=>show('msgPage'),2000);
+}
+function nextPage(){show('finalPage')}
+function show(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+for(let i=0;i<25;i++){
+  let s=document.createElement('div');
+  s.className='sparkle';
+  s.style.left=Math.random()*100+'vw';
+  s.style.animationDuration=4+Math.random()*4+'s';
+  document.body.appendChild(s);
+}
 </script>
 
 </body>
-      </html>
-      
+  </html>
+  
